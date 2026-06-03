@@ -40,7 +40,16 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- [ ] Spec-first evidence: `spec.md` includes prioritized user stories, measurable
+  success criteria, and assumptions.
+- [ ] Incremental delivery: plan preserves independently testable story slices and
+  defines an MVP at User Story 1.
+- [ ] Verifiable quality: behavior-changing scope includes fail-first/pass-after test
+  strategy and acceptance validation.
+- [ ] Hook compliance: required and optional lifecycle hooks from
+  `.specify/extensions.yml` are acknowledged.
+- [ ] Simplicity and traceability: complexity deviations are explicitly justified and
+  each planned workstream maps to user value.
 
 ## Project Structure
 

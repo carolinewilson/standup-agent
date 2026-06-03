@@ -9,7 +9,9 @@ description: "Task list template for feature implementation"
 
 **Prerequisites**: plan.md (required), spec.md (required for user stories), research.md, data-model.md, contracts/
 
-**Tests**: The examples below include test tasks. Tests are OPTIONAL - only include them if explicitly requested in the feature specification.
+**Tests**: Include validation tasks for every behavior-changing story. Tests may be
+omitted only for non-behavioral work (for example docs-only or pure refactoring)
+and the omission MUST be justified in tasks.md.
 
 **Organization**: Tasks are grouped by user story to enable independent implementation and testing of each story.
 
@@ -52,6 +54,8 @@ description: "Task list template for feature implementation"
 - [ ] T001 Create project structure per implementation plan
 - [ ] T002 Initialize [language] project with [framework] dependencies
 - [ ] T003 [P] Configure linting and formatting tools
+- [ ] T003a Record constitution alignment checks (spec-first, MVP-first slicing,
+         validation strategy, hook compliance)
 
 ---
 
@@ -80,7 +84,7 @@ Examples of foundational tasks (adjust based on your project):
 
 **Independent Test**: [How to verify this story works on its own]
 
-### Tests for User Story 1 (OPTIONAL - only if tests requested) ⚠️
+### Tests for User Story 1 (required for behavior changes) ⚠️
 
 > **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
 
@@ -106,7 +110,7 @@ Examples of foundational tasks (adjust based on your project):
 
 **Independent Test**: [How to verify this story works on its own]
 
-### Tests for User Story 2 (OPTIONAL - only if tests requested) ⚠️
+### Tests for User Story 2 (required for behavior changes) ⚠️
 
 - [ ] T018 [P] [US2] Contract test for [endpoint] in tests/contract/test_[name].py
 - [ ] T019 [P] [US2] Integration test for [user journey] in tests/integration/test_[name].py
@@ -128,7 +132,7 @@ Examples of foundational tasks (adjust based on your project):
 
 **Independent Test**: [How to verify this story works on its own]
 
-### Tests for User Story 3 (OPTIONAL - only if tests requested) ⚠️
+### Tests for User Story 3 (required for behavior changes) ⚠️
 
 - [ ] T024 [P] [US3] Contract test for [endpoint] in tests/contract/test_[name].py
 - [ ] T025 [P] [US3] Integration test for [user journey] in tests/integration/test_[name].py
@@ -247,6 +251,7 @@ With multiple developers:
 - [Story] label maps task to specific user story for traceability
 - Each user story should be independently completable and testable
 - Verify tests fail before implementing
+- Document any justified test omissions for non-behavioral tasks
 - Commit after each task or logical group
 - Stop at any checkpoint to validate story independently
 - Avoid: vague tasks, same file conflicts, cross-story dependencies that break independence
