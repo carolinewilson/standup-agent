@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pr-classifier"
+version = "0.1.0"
+description = "Retrieve and classify GitHub pull requests by review state for engineering stand-ups"
+requires-python = ">=3.9"
+dependencies = [
+    "PyGithub~=2.9",
+    "typer~=0.12",
+]
+
+[project.scripts]
+pr-classifier = "pr_classifier._cli.main:app"
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-mock",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]

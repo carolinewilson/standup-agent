@@ -1,0 +1,6 @@
+PyGithub~=2.9
+typer~=0.12
+
+[dev]
+pytest
+pytest-mock

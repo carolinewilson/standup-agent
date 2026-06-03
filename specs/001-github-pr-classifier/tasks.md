@@ -23,11 +23,11 @@ description: "Task list for GitHub PR Classifier implementation"
 
 **Purpose**: Project scaffolding and package initialization.
 
-- [ ] T001 Create `src/pr_classifier/` and `src/pr_classifier/_cli/` directories
-- [ ] T002 Create `tests/unit/` and `tests/integration/` directories
-- [ ] T003 Create `pyproject.toml` with package metadata, `[project.scripts]` entry point `pr-classifier = "pr_classifier._cli.main:app"`, and dependencies: `PyGithub~=2.9`, `typer~=0.12`; dev deps: `pytest`, `pytest-mock`
-- [ ] T004 [P] Create `src/pr_classifier/__init__.py` exporting `classify_repositories`, `ClassificationReport`, `RepositoryResult`, `ClassifiedPR`, `ClassificationState`, `AuthenticationError`, `PartialResultError`
-- [ ] T005 [P] Create `src/pr_classifier/_cli/__init__.py` (empty)
+- [x] T001 Create `src/pr_classifier/` and `src/pr_classifier/_cli/` directories
+- [x] T002 Create `tests/unit/` and `tests/integration/` directories
+- [x] T003 Create `pyproject.toml` with package metadata, `[project.scripts]` entry point `pr-classifier = "pr_classifier._cli.main:app"`, and dependencies: `PyGithub~=2.9`, `typer~=0.12`; dev deps: `pytest`, `pytest-mock`
+- [x] T004 [P] Create `src/pr_classifier/__init__.py` exporting `classify_repositories`, `ClassificationReport`, `RepositoryResult`, `ClassifiedPR`, `ClassificationState`, `AuthenticationError`, `PartialResultError`
+- [x] T005 [P] Create `src/pr_classifier/_cli/__init__.py` (empty)
 
 **Checkpoint**: `pip install -e .` succeeds; `pr-classifier --help` is callable
 
