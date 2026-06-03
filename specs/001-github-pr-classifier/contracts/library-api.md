@@ -106,9 +106,9 @@ class ClassifiedPR:
 ```python
 class ClassificationState(str, Enum):
     CHANGES_REQUESTED = "changes_requested"
+    STALE             = "stale"
     APPROVED          = "approved"
     WAITING_FOR_REVIEW = "waiting_for_review"
-    STALE             = "stale"
 ```
 
 ---

@@ -13,18 +13,19 @@ Represents the four mutually exclusive PR states. Applied in this precedence ord
 | Order | State | Slug |
 |-------|-------|------|
 | 1 | Changes Requested | `changes_requested` |
+| 2 | Stale | `stale` |
 | 2 | Approved | `approved` |
-| 3 | Waiting for Review | `waiting_for_review` |
-| 4 | Stale | `stale` |
+| 4 | Waiting for Review | `waiting_for_review` |
 
 **Classification rules**:
 - `changes_requested`: at least one review with state `CHANGES_REQUESTED` exists;
   a later `APPROVED` review by a different reviewer does NOT override it.
-- `approved`: at least one review with state `APPROVED` AND no unresolved
-  `CHANGES_REQUESTED` reviews.
-- `waiting_for_review`: open, non-draft, no reviews submitted.
-- `stale`: none of the above apply AND the PR's last activity timestamp is older
-  than the configured staleness threshold (default 48 hours).
+- `stale`: the PR is not in `changes_requested` and `last_activity_at` is older
+  than the configured staleness threshold (default 48 hours). This applies even if
+  the PR would otherwise be `approved` or `waiting_for_review`.
+- `approved`: at least one review with state `APPROVED`, no unresolved
+  `CHANGES_REQUESTED` reviews, and not stale.
+- `waiting_for_review`: open, non-draft, no reviews submitted, and not stale.
 
 ---
 
@@ -131,17 +132,11 @@ Open PR fetched
       │
       no
       ▼
-  Any APPROVED review? ──yes──► (check staleness)
-      │                              │
-      │             last_activity > threshold? ──yes──► stale
-      │                              │
-      │                              no
-      │                              ▼
-      │                           approved
-      │
-      no (no reviews)
-      ▼
   last_activity > threshold? ──yes──► stale
+      │
+      no
+      ▼
+  Any APPROVED review? ──yes──► approved
       │
       no
       ▼
