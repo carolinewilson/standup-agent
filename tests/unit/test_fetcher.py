@@ -169,6 +169,16 @@ def test_invalid_token_raises_auth_error(mocker):
         authenticate("bad-token")
 
 
+def test_forbidden_token_raises_auth_error(mocker):
+    """GithubException(403) during credential verification → AuthenticationError raised."""
+    mock_github = mocker.patch("pr_classifier._fetcher.Github")
+    instance = mock_github.return_value
+    instance.get_user.side_effect = GithubException(403, "Forbidden", None)
+
+    with pytest.raises(AuthenticationError):
+        authenticate("sso-unapproved-token")
+
+
 def test_valid_token_returns_github_instance(mocker):
     """Valid token → returns a Github instance without raising."""
     mock_github = mocker.patch("pr_classifier._fetcher.Github")

@@ -88,7 +88,7 @@ After T006: `pytest tests/unit/test_models.py` — all pass
   - `build_report(repo_results: list[RepositoryResult], staleness_hours: int) -> ClassificationReport` — computes `counts`, `generated_at`, assembles `ClassificationReport`
   (depends on T006, T007)
 
-- [ ] T014 [US1] Create `src/pr_classifier/_fetcher.py` with:
+- [x] T014 [US1] Create `src/pr_classifier/_fetcher.py` with:
   - `fetch_repository(github: Github, repo_id: str, staleness_hours: int) -> RepositoryResult` — calls `github.get_repo(repo_id).get_pulls(state="open")`, filters drafts, maps to `PullRequest` + `ReviewEvent`, calls `classify_pr`, handles `GithubException(404/403)` → `RepositoryResult.error`
   - `authenticate(token: str) -> Github` — creates `Github(auth=Auth.Token(token))`, verifies credentials via `github.get_user().login`, raises `AuthenticationError` on `GithubException(401)`
   (depends on T006, T007, T013)
