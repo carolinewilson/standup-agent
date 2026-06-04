@@ -55,7 +55,7 @@ After T006: `pytest tests/unit/test_models.py` — all pass
 
 ### Tests for User Story 1 (behavior-changing)
 
-- [ ] T009 [P] [US1] Create `tests/unit/test_classifier.py` — write tests that FAIL before T013:
+- [x] T009 [P] [US1] Create `tests/unit/test_classifier.py` — write tests that FAIL before T013:
   - `test_changes_requested_wins_over_approval`: PR with one CHANGES_REQUESTED and one subsequent APPROVED → `changes_requested`
   - `test_approved_no_changes`: PR with one APPROVED, no CHANGES_REQUESTED, activity within 48 h → `approved`
   - `test_approved_stale`: PR with one APPROVED, no CHANGES_REQUESTED, last activity > 48 h ago → `stale`
@@ -65,13 +65,13 @@ After T006: `pytest tests/unit/test_models.py` — all pass
   - `test_counts_sum`: `ClassificationReport.counts` values sum to total PR count
   - `test_empty_repo`: repo with no open PRs → `RepositoryResult.prs == []`, `error is None`
 
-- [ ] T010 [P] [US1] Create `tests/unit/test_fetcher.py` — write tests that FAIL before T014 (mock PyGithub via `pytest-mock`):
+- [x] T010 [P] [US1] Create `tests/unit/test_fetcher.py` — write tests that FAIL before T014 (mock PyGithub via `pytest-mock`):
   - `test_fetch_open_prs_excludes_drafts`: `get_pulls(state="open")` result containing one draft and one non-draft → only non-draft returned
   - `test_fetch_reviews_maps_state`: raw PyGithub review objects correctly mapped to `ReviewEvent`
   - `test_invalid_token_raises_auth_error`: PyGithub raises `GithubException(401)` → `AuthenticationError` raised
   - `test_inaccessible_repo_returns_error`: PyGithub raises `GithubException(404)` → `RepositoryResult.error` set, processing continues
 
-- [ ] T011 [P] [US1] Create `tests/integration/test_cli.py` — write tests that FAIL before T016 using Typer `CliRunner`:
+- [x] T011 [P] [US1] Create `tests/integration/test_cli.py` — write tests that FAIL before T016 using Typer `CliRunner`:
   - `test_cli_valid_output_shape`: verify stdout is valid JSON with keys `generated_at`, `staleness_threshold_hours`, `counts`, `repositories`
   - `test_cli_exit_0_on_success`: exit code is 0
   - `test_cli_exit_1_on_auth_error`: `AuthenticationError` from library → exit 1, nothing on stdout
@@ -81,9 +81,9 @@ After T006: `pytest tests/unit/test_models.py` — all pass
 
 ### Implementation for User Story 1
 
-- [ ] T012 [P] [US1] Create `tests/unit/conftest.py` with shared pytest fixtures: `make_review_event(state, hours_ago)`, `make_pull_request(reviews, hours_since_activity, draft=False)`, `staleness_hours=48`
+- [x] T012 [P] [US1] Create `tests/unit/conftest.py` with shared pytest fixtures: `make_review_event(state, hours_ago)`, `make_pull_request(reviews, hours_since_activity, draft=False)`, `staleness_hours=48`
 
-- [ ] T013 [US1] Create `src/pr_classifier/_classifier.py` with:
+- [x] T013 [US1] Create `src/pr_classifier/_classifier.py` with:
   - `classify_pr(pr: PullRequest, staleness_hours: int, now: datetime) -> ClassificationState` — pure function implementing precedence: Changes Requested → Stale → Approved → Waiting for Review
   - `build_report(repo_results: list[RepositoryResult], staleness_hours: int) -> ClassificationReport` — computes `counts`, `generated_at`, assembles `ClassificationReport`
   (depends on T006, T007)
