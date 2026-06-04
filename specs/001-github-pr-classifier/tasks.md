@@ -93,7 +93,7 @@ After T006: `pytest tests/unit/test_models.py` — all pass
   - `authenticate(token: str) -> Github` — creates `Github(auth=Auth.Token(token))`, verifies credentials via `github.get_user().login`, raises `AuthenticationError` on `GithubException(401)`
   (depends on T006, T007, T013)
 
-- [ ] T015 [US1] Update `src/pr_classifier/__init__.py` with `classify_repositories(repos, token, staleness_hours=48) -> ClassificationReport` — validates inputs, calls `authenticate`, iterates repos via `fetch_repository`, raises `PartialResultError` if any repo errored, otherwise returns `build_report` result per `specs/001-github-pr-classifier/contracts/library-api.md`
+- [x] T015 [US1] Update `src/pr_classifier/__init__.py` with `classify_repositories(repos, token, staleness_hours=48) -> ClassificationReport` — validates inputs, calls `authenticate`, iterates repos via `fetch_repository`, raises `PartialResultError` if any repo errored, otherwise returns `build_report` result per `specs/001-github-pr-classifier/contracts/library-api.md`
   (depends on T004, T013, T014)
 
 - [ ] T016 [US1] Create `src/pr_classifier/_cli/main.py` — `typer` app with command `classify(repos: list[str], token: Optional[str], staleness_hours: int = 48)`: reads token from `--token` or `GITHUB_TOKEN` env var; calls `classify_repositories`; serialises `ClassificationReport` to JSON on stdout; maps `ValueError` → exit 2, `AuthenticationError` → exit 1, `PartialResultError` → exit 3 (still writes `.report` JSON to stdout); no business logic per FR-010 and `specs/001-github-pr-classifier/contracts/cli-schema.md`
