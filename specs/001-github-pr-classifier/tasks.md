@@ -108,10 +108,10 @@ After T006: `pytest tests/unit/test_models.py` — all pass
 **Purpose**: Package completeness, documentation, and final validation.
 
 - [ ] T017 [P] Create `README.md` at repository root covering: install, `GITHUB_TOKEN` setup, CLI usage examples from `specs/001-github-pr-classifier/quickstart.md`, library import example
-- [ ] T018 [P] Create `.gitignore` entries for `__pycache__/`, `*.pyc`, `.venv/`, `dist/`, `*.egg-info/` (extends existing `.gitignore`)
-- [ ] T019 Run `pip install -e ".[dev]"` and `pytest tests/ -v` — confirm all tests pass and no warnings
-- [ ] T020 Validate quickstart scenarios from `specs/001-github-pr-classifier/quickstart.md` against the installed package: `pr-classifier --help`, JSON output shape, exit code table
-- [ ] T021 Run `pr-classifier --help` as a subprocess against the installed entry point and confirm exit code 0
+- [x] T018 [P] Create `.gitignore` entries for `__pycache__/`, `*.pyc`, `.venv/`, `dist/`, `*.egg-info/` (extends existing `.gitignore`)
+- [x] T019 Run `pip install -e ".[dev]"` and `pytest tests/ -v` — confirm all tests pass and no warnings
+- [x] T020 Validate quickstart scenarios from `specs/001-github-pr-classifier/quickstart.md` against the installed package: `pr-classifier --help`, JSON output shape, exit code table
+- [x] T021 Run `pr-classifier --help` as a subprocess against the installed entry point and confirm exit code 0
 ``
 
 ---

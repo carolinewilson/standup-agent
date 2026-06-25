@@ -1,5 +1,10 @@
+README.md
 pyproject.toml
 src/pr_classifier/__init__.py
+src/pr_classifier/_classifier.py
+src/pr_classifier/_exceptions.py
+src/pr_classifier/_fetcher.py
+src/pr_classifier/_models.py
 src/pr_classifier.egg-info/PKG-INFO
 src/pr_classifier.egg-info/SOURCES.txt
 src/pr_classifier.egg-info/dependency_links.txt

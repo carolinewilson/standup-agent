@@ -19,7 +19,7 @@ from pr_classifier._models import (
     RepositoryResult,
 )
 
-runner = CliRunner(mix_stderr=False)
+runner = CliRunner()
 
 UTC = timezone.utc
 NOW = datetime(2026, 6, 3, 12, 0, 0, tzinfo=UTC)
